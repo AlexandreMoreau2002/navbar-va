@@ -1,0 +1,191 @@
+// la nav (le container de toute la nav
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+
+  background-color: $back-black;
+  color: $text-white;
+
+  position: sticky;
+  top: 0;
+  padding: 10px 30px;
+
+  // bouton pour ouvrir le menu
+  .open_menu {
+    display: none;
+    position: absolute;
+    top: 29px;
+    left: 29px;
+
+    cursor: pointer;
+  }
+
+  // pour les hover des boutons
+  .yellow:hover {
+    color: $yellow;
+  }
+
+  // le logo va
+  .logo {
+    max-width: 180px;
+  }
+
+  // main navbar
+  .navBar {
+    display: flex;
+
+    // bouton pour fermer le menu
+    .span_btn {
+      display: none;
+      cursor: pointer;
+    }
+
+    &_ul {
+      @include flex-center(flex, center, center);
+      gap: 25px;
+      list-style: none;
+
+      // les liens
+      .link {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 14px;
+        color: $text-white;
+      }
+
+      .home {
+        display: none;
+      }
+    }
+
+    .active {
+      color: $yellow;
+    }
+  }
+
+  // contact
+  .contact_nav {
+    @include flex-center(flex, center, center);
+    gap: 15px;
+
+    &_link {
+      @include flex-center(flex, center, center);
+      gap: 1.5vw;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 12px 15px;
+      background-color: $yellow;
+      color: $back-black;
+    }
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .navBar, .contact_nav {
+    width: 60vw !important;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .container {
+    display: flex;
+    justify-content: center;
+
+    // style pour le bouton menu
+    .open_menu {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+    }
+
+    // style du logo
+    .image_container {
+      background-color: $back-black;
+    }
+
+    // style main navbar
+    .navBar {
+      display: flex;
+      width: 45vw;
+      left: -600px;
+
+      position: absolute;
+      top: 0;
+      background-color: $back-black;
+
+      // style du close btn
+      .span_btn {
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        font-size: 35px;
+      }
+
+      // liste des liens
+      &_ul {
+        flex-direction: column;
+
+        gap: 30px;
+        align-items: start;
+        padding: 60px 30px 30px 30px;
+      }
+
+      .home {
+        display: block;
+      }
+    }
+
+    // styles des contact + btn shop
+    .contact_nav {
+      display: flex;
+      flex-direction: column;
+      left: -600px;
+      gap: 30px;
+
+      position: absolute;
+      top: 349px;
+      width: 45vw;
+      background-color: $back-black;
+
+      &_link {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 30px;
+        width: 100%;
+
+        i {
+          display: block;
+          padding: 1vw;
+        }
+      }
+
+      .shop {
+        order: -1;
+        text-align: center;
+        width: -webkit-fill-available;
+        margin: 0 30px;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: 200vw;
+        background-color: $back-black;
+      }
+    }
+
+    #open {
+      // display: flex; // plus utile car changement de methode
+      left: 0;
+      transition: left 0.4s linear;
+    }
+  }
+}

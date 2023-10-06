@@ -1,0 +1,39 @@
+$yellow: #ffd500;
+$back-black: #262626;
+$text-white: #ffffff;
+$text-black: #333333;
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+
+// declaration de la mixin flex center, avec la possiblité de modifier les valeurs dans les déclarations futur
+@mixin flex-center(
+  $display: center,
+  $justify-content: center,
+  $align-items: center
+) {
+  display: $display;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+:root {
+  background-color: #262626aa;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+// header ✅
+.header {
+  @include flex-center(flex, center, center);
+  background-color: $yellow;
+  color: $text-black;
+  height: 35px;
+  font-size: 14px;
+}
+
+@import "./_navbar";
